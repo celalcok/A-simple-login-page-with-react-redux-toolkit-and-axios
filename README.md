@@ -1,3 +1,6 @@
+
+# A simple login page with react, redux-toolkit and axios
+![redux-toolkit](redux-toolkit.gif "A simple login page with react, redux-toolkit and axios.")
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
