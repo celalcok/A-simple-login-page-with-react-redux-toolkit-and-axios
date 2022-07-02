@@ -25,9 +25,10 @@ export const loginSlice = createSlice({
                     headers: { Authorization: `Bearer ${token}` }
                   })
                 .then((response) => {
-                    console.log(response.data)
-                    name = response.data.data.user.fullname
+                    console.log(response.data);
+                    name = response.data.data.user.fullname;
                     localStorage.setItem("name", name);
+                    token = response.data.data.token;
                 })
                 .catch((err) => {
                     console.log(err)
@@ -38,7 +39,8 @@ export const loginSlice = createSlice({
             
            return{
                ...state,
-               token:localStorage.getItem("token"),
+               token:token,
+               name:name,
                isLogged:true
 
            }
@@ -48,6 +50,7 @@ export const loginSlice = createSlice({
         logout:(state) =>{
             localStorage.removeItem("token");
             localStorage.removeItem("name");
+            
             return {
                 ...state,
                 token:"",
@@ -55,6 +58,7 @@ export const loginSlice = createSlice({
                 isLogged:false
             }
         }
+
 
 
     }
